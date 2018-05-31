@@ -1,10 +1,6 @@
 /**********************************************************
- * AUTHOR 		   : Chris Baroni
- * STUDENT ID      : 266549
- * ASSIGNMENT	   : 6
- * CLASS 		   : CS1D
- * SECTION 		   : M/W 4:30p-7:50p
- * DUE DATE 	   : 3/2/2016
+ * Names: Chris Baroni, Nick Bernstein, Pierce Findlay
+ * Class: CPSC 311 MWT 5pm-8pm
  **********************************************************/
 
 #ifndef PRIORITYQUEUE_H_
@@ -17,12 +13,16 @@ using namespace std;
 
 struct node
 {
-	int priority;	//highest number highest priority
+	//highest number highest priority
+	int priority;
+	//name of patient	
 	string name;
+	//overloaded < operator
 	bool operator<(const node& rhs) const
 	{
 	   return this->priority < rhs.priority;
 	}
+	//overloaded > operator
 	bool operator>(const node& rhs) const
     {
 	   return this->priority > rhs.priority;
@@ -32,31 +32,44 @@ struct node
 class PriorityQueue
 {
 public:
+	//default ctor
 	PriorityQueue();
+	//default dtor
 	~PriorityQueue();
 
-
-	void push(int priority,
-			  string newName); 	//inserts an element in the priority queue
-	node pop(); 				//removes the element at the top of the priority queue
-	node top(); 				//returns a constant reference to the largest element of the priority queue
-	node at(int n);				//return node at specified location
-	int size(); 				//returns the number of elements stored
-	bool empty();				//returns a boolean to show if empty or not
-	void sort();				//sorts based on priority
-
+	//append to the queue
+	void push(int priority, string newName);
+	//remove front element of the queue
+	node pop();
+	//return highest priority element
+	node top();
+	//return node at an index
+	node at(int n);
+	//return size of queue
+	int size();
+	//True if queue is empty
+	bool empty();
+	//Sorts queue
+	void sort();
 
 private:
 	vector<node> list;
 };
 
-PriorityQueue::PriorityQueue()
-{
+/********************************************
+* Default Constructor
+********************************************/
+PriorityQueue::PriorityQueue(){}
 
-}
+/********************************************
+* Default Destructor
+********************************************/
 PriorityQueue::~PriorityQueue(){}
 
-
+/********************************************
+* void push(int, string)
+* Purpose: appends a node to the PriorityQueue
+********************************************/
 void PriorityQueue::push(int priority,
 		  string newName)
 {
@@ -67,6 +80,10 @@ void PriorityQueue::push(int priority,
 	sort();
 }
 
+/********************************************
+* node pop()
+* Purpose: removes the element at the top of the PriorityQueue
+********************************************/
 node PriorityQueue::pop()
 {
 	node temp = list.at(list.size()-1);
@@ -74,26 +91,46 @@ node PriorityQueue::pop()
 	return temp;
 }
 
+/********************************************
+* node top()
+* Purpose: returns node with the highest priority
+********************************************/
 node PriorityQueue::top()
 {
 	return list[list.size()-1];
 }
 
+/********************************************
+* node at(int)
+* Purpose: return node at specified location
+********************************************/
 node PriorityQueue::at(int n)
 {
 	return list[n];
 }
 
+/********************************************
+* int size()
+* Purpose: returns the number of elements stored
+********************************************/
 int PriorityQueue::size()
 {
 	return list.size();
 }
 
+/********************************************
+* bool empty()
+* Purpose: returns a boolean to show if empty or not
+********************************************/
 bool PriorityQueue::empty()
 {
 	return list.empty();
 }
 
+/********************************************
+* void sort()
+* Purpose: sorts based on priority
+*********************************************/
 void PriorityQueue::sort()
 {
 	node temp;
