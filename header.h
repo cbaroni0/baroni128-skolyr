@@ -1,10 +1,6 @@
 /**********************************************************
- * AUTHOR 		   : Chris Baroni
- * STUDENT ID      : 266549
- * ASSIGNMENT	   : 6
- * CLASS 		   : CS1D
- * SECTION 		   : M/W 4:30p-7:50p
- * DUE DATE 	   : 3/2/2016
+ * Names: Chris Baroni, Nick Bernstein, Pierce Findlay
+ * Class: CPSC 311 MWT 5pm-8pm
  **********************************************************/
 
 /*********************************************************
@@ -27,11 +23,9 @@
 #include "PriorityQueue.h"
 using namespace std;
 
-void PrintHeader(string asName,			//IN-OUT Assignment name
-				 string authors,		//IN-OUT programmer
-				 string id,				//IN-OUT student id #s
-				 char asType,			//IN-OUT if assignment or lab
-				 int asNum);			//IN-OUT assignment or lab number
-void initializeHospital(PriorityQueue& list);	//initialize hospital list
+//PrintHeader - prints the header of relevant information at the top of the output.
+void PrintHeader(string asName, string authors,	string id, char asType, int asNum);
+//initializeHospital - initializes a PriorityQueue variable to be used by the main function.
+void initializeHospital(PriorityQueue& list);
 
 #endif /* HEADER_H_ */
