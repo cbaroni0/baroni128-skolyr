@@ -1,11 +1,7 @@
 /**********************************************************
- * AUTHOR 		   : Chris Baroni
- * STUDENT ID      : 266549
- * ASSIGNMENT	   : 6
- * CLASS 		   : CS1D
- * SECTION 		   : M/W 4:30p-7:50p
- * DUE DATE 	   : 3/2/2016
- **********************************************************/
+* Names: Chris Baroni, Nick Bernstein, Pierce Findlay
+* CPSC 311 MTW 5pm-8pm
+**********************************************************/
 
 #include <string>
 #include <iomanip>
@@ -18,14 +14,6 @@ using namespace std;
  * This Function receives and assignment name, type
  * and number then outputs the appropriate header -
  * returns nothing
- * _______________________________________________________________________
- * PRE-CONDITIONS
- * 	asName : Assignment Name has to be previously defined
- * 	asType : Assignment Type has to be previously defined
- * 	asNum  : Assignment Number has to be previously defined
- *
- * POST-CONDITIONS
- * 	This function will out the class heading.
  ************************************************************************/
 void PrintHeader(string asName,			//IN-OUT Assignment name
 				 string authors,		//IN-OUT programmer
@@ -34,30 +22,31 @@ void PrintHeader(string asName,			//IN-OUT Assignment name
 				 int asNum)				//IN-OUT assignment or lab number
 
 {
+        //This section below outputs the programmers' names, ID numbers, and class
 	cout << left;
 	cout << "******************************************************\n";
 	cout << "* Programmed by : " << authors;
 	cout << "\n* " << setw(14) << "Student Id" << ": " << id;
-	cout << "\n* " << setw(14) << "Class" << ": CS 1D --> MW - 4:30-"
+	cout << "\n* " << setw(14) << "Class" << ": CPSC 311 --> MTW - 5:00-"
 			"8:00p \n";
 	// This if selection statement will check to see if the input is a lab
 	// or an assignment
-	if (toupper(asType)== 'L')
+	if (toupper(asType)== 'L') // If the type is L it will print Lab and it's number
 	{
 		cout << setw(15) << "* LAB #"
 			 << asNum << ": " << asName;
 	}
-	else if (toupper(asType) == 'A')
+	else if (toupper(asType) == 'A')  // If the type is A it will print Assignment and it's number
 	{
 		cout << setw(15) << "* ASSIGNMENT #"
 			 << asNum << ": " << asName;
 	}
 	else
 	{
-		cout << setw(16) << "* EXCERCISE "
+	        cout << setw(16) << "* EXCERCISE "  // If it is neither A or L then it prints Exercise
 			 << ": " << asName;
 	}
 
 	cout << "\n******************************************************\n\n";
 	cout << right;
-}
+} // EndPrintHeader
